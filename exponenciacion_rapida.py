@@ -1,4 +1,3 @@
-# exponenciacion_rapida.py
 def exponenciacion_rapida(base, exponente, modulo=None):
     resultado = 1
     base = base % modulo if modulo else base
@@ -11,14 +10,7 @@ def exponenciacion_rapida(base, exponente, modulo=None):
 
     return resultado
 
-def calcular(entry_base, entry_exponente, entry_modulo, messagebox):
-    try:
-        base = int(entry_base.get())
-        exponente = int(entry_exponente.get())
-        modulo = int(entry_modulo.get())
-        
-        resultado = exponenciacion_rapida(base, exponente, modulo)
-        
-        messagebox.showinfo("Resultado", f"El resultado de {base}^{exponente} mod {modulo} es {resultado}")
-    except ValueError:
-        messagebox.showerror("Error", "Por favor, ingrese valores enteros válidos.")
+def calcular(base, exponente, modulo, label_resultado, label_titulo):
+    resultado = exponenciacion_rapida(base, exponente, modulo)
+    label_titulo.config(text=f"{base}^{exponente} mod {modulo}")
+    label_resultado.config(text=f"{resultado}")
